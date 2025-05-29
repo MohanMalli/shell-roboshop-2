@@ -13,7 +13,7 @@ cp $SCRIPT_DIR/mongo.repo /etc/yum.repos.d/mongo.repo
 dnf install mongodb-mongosh -y &>>LOG_FILE
 VALIDATE $? "Installing Mongodb clinet"
 
-STATUS=$(mongosh --host mongodb.malli.site --eval 'db.getMongo().getDBNames().indexof("catalogue")
+STATUS=$(mongosh --host mongodb.malli.site --eval 'db.getMongo().getDBNames().indexof("catalogue")'
 if [ $STATUS -lt 0 ]
 then 
     mongosh --host mongodb.malli.site </app/db/master-date.js &>>LOG_FILE
