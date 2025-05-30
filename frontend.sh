@@ -34,7 +34,7 @@ VALIDATE $? "remove default nginx conf"
 cp $SCRIPT_DIR/nginx.conf /etc/nginx/nginx.conf &>>$LOG_FILE
 VALIDATE $? "Copying nginx.conf"
 
-systemctl restart nginx &>>$LOG_FILE
-VALIDATE $? "Restarting nginx"
+systemctl start nginx &>>$LOG_FILE
+VALIDATE $? "starting nginx"
 
 print_time
