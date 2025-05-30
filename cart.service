@@ -2,7 +2,7 @@
 Description = Cart Service
 
 [Service]
-User=roboshop
+user=roboshop
 // highlight-start
  Environment=REDIS_HOST=redis.malli.site
  Environment=CATALOGUE_HOST=catalogue.malli.site
