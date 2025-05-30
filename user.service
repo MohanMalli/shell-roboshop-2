@@ -1,0 +1,20 @@
+[Unit]
+Description = User Service
+
+[Service]
+User=roboshop
+Environment=MONGO=tree
+//...highlight-start
+Environment=REDIS_URL="redis://redis.malli.site:6379"
+Environment=MONGO_URL="mongo://mongodb.malli.site:27017"
+//...highlight-end
+ExecStart=/bin/node /app/service.js
+SyslogIdentifier=user
+
+[Install]
+WantedBy=multi.user-target
+
+
+
+
+ 
