@@ -12,11 +12,11 @@ VALIDATE $? "Enabling Nginx:1.24"
 dnf install nginx -y &>>$LOG_FILE
 VALIDATE $? "Installing Nginx"
 
-systemctl enable nginx &>>$LOG_FILE
-VALIDATE $? "Enabling Nginx"
+# systemctl enable nginx &>>$LOG_FILE
+# VALIDATE $? "Enabling Nginx"
 
-systemctl start nginx
-VALIDATE $? "Starting Nginx"
+# systemctl start nginx
+# VALIDATE $? "Starting Nginx"
 
 rm -rf /usr/share/nginx/html/* &>>$LOG_FILE
 VALIDATE $? "Removing default content"
@@ -34,7 +34,16 @@ VALIDATE $? "remove default nginx conf"
 cp $SCRIPT_DIR/nginx.conf /etc/nginx/nginx.conf &>>$LOG_FILE
 VALIDATE $? "Copying nginx.conf"
 
-systemctl restart nginx &>>$LOG_FILE
-VALIDATE $? "Restarting nginx"
+systemctl enable nginx &>>$LOG_FILE
+VALIDATE $? "Enabling Nginx"
+
+systemctl start nginx
+VALIDATE $? "Starting Nginx"
+
+systemctl enable nginx &>>$LOG_FILE
+VALIDATE $? "Enabling Nginx"
+
+# systemctl restart nginx &>>$LOG_FILE
+# VALIDATE $? "Restarting nginx"
 
 print_time
